@@ -1,0 +1,32 @@
+{
+    "name": "mateusjatenee/laravel-testing-extended",
+    "description": "PHP project.",
+    "keywords": [],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mateus Guimarães",
+            "email": "mateus.jatene@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mateusjatenee\\LaravelTestingExtended\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Mateusjatenee\\LaravelTestingExtended\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "stable",
+    "scripts": {
+        "test": "phpunit"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.5"
+    }
+}
