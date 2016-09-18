@@ -1,17 +1,53 @@
-LaravelTestingExtended
+Laravel Testing Extended
 ================
 [![Build Status](https://travis-ci.org/mateusjatenee/laravel-testing-extended.svg?branch=master)](https://travis-ci.org/mateusjatenee/laravel-testing-extended)
 
-This is where your library description should go. Try to limit it to a paragraph or two.
+Some helpers I found useful when testing.
 
 #### Installation via Composer
 ``` bash
 $ composer require mateusjatenee/laravel-testing-extended
-```
+```   
 
-#### Running tests
-``` bash
-$ composer test
+#### Usage   
+Just install it and then import and use the traits you want in your `TestCase.php` file. Example:   
+
+```php
+
+<?php
+
+use Mateusjatenee\LaravelTestingExtended\Traits\AssertionsTrait;
+use Mateusjatenee\LaravelTestingExtended\Traits\MockTrait;
+
+abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
+{
+
+    use AssertionsTrait;
+    use MockTrait;
+
+    /**
+     * The base URL to use while testing the application.
+     *
+     * @var string
+     */
+    protected $baseUrl = 'http://localhost';
+
+    /**
+     * Creates the application.
+     *
+     * @return \Illuminate\Foundation\Application
+     */
+    public function createApplication()
+    {
+        $app = require __DIR__ . '/../bootstrap/app.php';
+
+        $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
+
+        return $app;
+    }
+}
+
+
 ```
 
 #### License
